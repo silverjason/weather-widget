@@ -13,6 +13,14 @@ input:focus {
   outline: 0;
 }
 
+body.light {
+  background-color: #eef8f6;
+}
+
+body.dark {
+  background-color: #1d1d1d;
+}
+
 .transition-btn {
   margin: 16px 8px 0 8px;
   font-weight: 600;

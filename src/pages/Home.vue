@@ -121,17 +121,5 @@ export default {
   margin-top: 60px;
 }
 
-body {
-  background-color: #eef8f6;
-}
-
-body.light {
-  background-color: #eef8f6;
-}
-
-body.dark {
-  background-color: #1d1d1d;
-}
-
 @import '../assets/css/home.css';
 </style>
