@@ -1,11 +1,16 @@
 <template>
   <div>
-    <h3>Hows the weather looking?</h3>
+    <button class="light-dark-btn" @click="toggleAppearence()">
+      Click me!
+    </button>
+
+    <h3 :class="appearenceMode">Hows the weather looking?</h3>
     <input id="searchTextField" type="text" size="50" />
     <div>
-      <button class="transition-button" @click="back()">Back</button>
-      <button class="transition-button" @click="next()">Next</button>
+      <button class="transition-btn" @click="back()">Back</button>
+      <button class="transition-btn" @click="next()">Next</button>
     </div>
+
     <transition-group
       v-for="index in daysTotal"
       :key="index"
@@ -44,9 +49,11 @@ export default {
       placeName: 'Sydney',
       lat: -33.8688197, //default to sydney
       long: 151.2092955, //default to sydney
+      appearenceMode: 'light',
     };
   },
   mounted() {
+    document.body.className = this.appearenceMode;
     const script = document.createElement('script');
     script.async = true;
     script.src = `https://maps.googleapis.com/maps/api/js?key=${config.GOOGLE_API_KEY}&libraries=places`;
@@ -84,6 +91,11 @@ export default {
         this.fetchData(lat, long, place.name);
       });
     },
+    toggleAppearence() {
+      console.log(this.appearenceMode);
+      this.appearenceMode = this.appearenceMode === 'light' ? 'dark' : 'light';
+      document.body.className = this.appearenceMode;
+    },
     back() {
       this.isBack = true;
       if (this.currentIndex > 1) {
@@ -111,6 +123,14 @@ export default {
 
 body {
   background-color: #eef8f6;
+}
+
+body.light {
+  background-color: #eef8f6;
+}
+
+body.dark {
+  background-color: #1d1d1d;
 }
 
 @import '../assets/css/home.css';

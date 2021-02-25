@@ -13,7 +13,7 @@ input:focus {
   outline: 0;
 }
 
-.transition-button {
+.transition-btn {
   margin: 16px 8px 0 8px;
   font-weight: 600;
   letter-spacing: 0.0625em;
@@ -26,13 +26,22 @@ input:focus {
   padding: 4px 16px 4px 16px;
 }
 
-.transition-button:focus {
+.transition-btn:focus {
   outline: 0;
 }
 
-.transition-button:hover {
+.transition-btn:hover {
   background-color: #006071;
   cursor: pointer;
+}
+
+.light-dark-btn {
+  left: 12px;
+  position: absolute;
+}
+
+h3.dark {
+  color: white;
 }
 
 /* animation and transition */
